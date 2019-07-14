@@ -11,6 +11,9 @@ services:
       - ./client:/client
     ports:
       - "3000:3000"
+    depends_on:
+      api-backend:
+        condition: service_healthy
 
   api-backend:
     build:
@@ -21,3 +24,8 @@ services:
       - ./server:/server
     ports:
       - "3001:3001"
+    healthcheck:
+      test: wget -q --spider http://localhost:3001/api/healthz
+      interval: 10s
+      timeout: 10s
+      retries: 3
