@@ -10,11 +10,6 @@ const app = express();
 
 app.set("port", process.env.PORT || 3001);
 
-// Express only serves static assets in production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-
 const COLUMNS = [
   "carbohydrate_g",
   "protein_g",
@@ -24,6 +19,13 @@ const COLUMNS = [
   "kcal",
   "description"
 ];
+
+app.get("/api/healthz", (req, res) => {
+  res.json({
+    "status": "healthy"
+  })
+});
+
 app.get("/api/food", (req, res) => {
   const param = req.query.q;
 
