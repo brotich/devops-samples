@@ -8,6 +8,16 @@ services:
       target: development
     image: "react-client-demo:development"
     volumes:
-      - ./client:/client/app
+      - ./client:/client
     ports:
       - "3000:3000"
+
+  api-backend:
+    build:
+      context: server
+      dockerfile: ../docker/Dockerfile.server
+    image: "api-backend-demo:development"
+    volumes:
+      - ./server:/server
+    ports:
+      - "3001:3001"
