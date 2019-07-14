@@ -5,6 +5,7 @@ services:
     build:
       context: client
       dockerfile: ../docker/Dockerfile.client
+      target: development
     volumes:
       - ./client:/client/app
     ports:
