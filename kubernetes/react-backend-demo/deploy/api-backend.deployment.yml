@@ -18,5 +18,9 @@ spec:
       containers:
       - name: api-backend-demo
         image: brianstech/api-backend-demo:latest
+        command:
+          - npm
+          - run
+          - start
         ports:
         - containerPort: 3001
