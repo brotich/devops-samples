@@ -6,7 +6,7 @@ services:
       context: client
       dockerfile: ../docker/Dockerfile.client
       target: development
-    image: "react-client-demo:development"
+    image: "brianstech/react-client-demo:development"
     volumes:
       - ./client:/client
     ports:
@@ -19,7 +19,7 @@ services:
     build:
       context: server
       dockerfile: ../docker/Dockerfile.server
-    image: "api-backend-demo:development"
+    image: "brianstech/api-backend-demo:development"
     volumes:
       - ./server:/server
     ports:
