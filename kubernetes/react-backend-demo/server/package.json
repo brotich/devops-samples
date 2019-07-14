@@ -1,0 +1,13 @@
+{
+    "name": "lookup-server",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {},
+    "dependencies": {
+        "express": "^4.17.1",
+        "sql-js": "^0.1.0"
+    },
+    "scripts": {
+        "start": "node server.js"
+    }
+}
