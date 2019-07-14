@@ -6,6 +6,7 @@ services:
       context: client
       dockerfile: ../docker/Dockerfile.client
       target: development
+    image: "react-client-demo:development"
     volumes:
       - ./client:/client/app
     ports:
