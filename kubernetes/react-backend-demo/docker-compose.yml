@@ -1,0 +1,11 @@
+version: "2.3"
+
+services:
+  react-client:
+    build:
+      context: client
+      dockerfile: ../docker/Dockerfile.client
+    volumes:
+      - ./client:/client/app
+    ports:
+      - "3000:3000"
