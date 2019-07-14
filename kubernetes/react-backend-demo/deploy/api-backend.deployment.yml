@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-backend
+spec:
+  selector:
+    matchLabels:
+      app: api-backend
+      role: api-backend
+      tier: demo
+  template:
+    metadata:
+      labels:
+        app: api-backend
+        role: api-backend
+        tier: demo
+    spec:
+      containers:
+      - name: api-backend-demo
+        image: brianstech/api-backend-demo:latest
+        ports:
+        - containerPort: 3001

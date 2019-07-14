@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-client
+spec:
+  selector:
+    matchLabels:
+      app: react-client
+      role: frontend
+      tier: demo
+  template:
+    metadata:
+      labels:
+        app: api-backend
+        role: api-backend
+        tier: demo
+    spec:
+      containers:
+      - name: react-client
+        image: brianstech/react-client-demo:latest
+        ports:
+        - containerPort: 3000
