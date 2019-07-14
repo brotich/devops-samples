@@ -1,0 +1,25 @@
+FROM node:8-alpine as development
+
+LABEL description="React client app"
+
+ARG NODE_ENV=development
+ENV NODE_ENV $NODE_ENV
+
+WORKDIR /client/app
+
+# install javascript dependencies
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+# ensure we install the needed dev dependencies
+RUN npm --production=false install
+
+# add react application
+COPY . /client/app
+RUN if [[ "$NODE_ENV" == "production" ]]; then \
+    echo "create production build" \
+    && npm run build; \
+    fi
+
+EXPOSE 3000
+CMD ["npm", "run", "start"]
