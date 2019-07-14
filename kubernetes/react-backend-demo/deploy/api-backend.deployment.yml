@@ -8,6 +8,7 @@ spec:
       app: api-backend
       role: api-backend
       tier: demo
+  replicas: 1
   template:
     metadata:
       labels:
@@ -25,3 +26,12 @@ spec:
         ports:
         - containerPort: 3001
           name: http-backend
+        resources:
+          requests:
+            cpu: 20m
+            memory: 100Mi
+          limits:
+            cpu: 50m
+            memory: 200Mi
+        # readinessProbe:
+        # livenessProbe:
