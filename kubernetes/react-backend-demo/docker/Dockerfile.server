@@ -12,14 +12,10 @@ COPY package.json package.json
 COPY package-lock.json package-lock.json
 
 # ensure we install the needed dev dependencies
-RUN npm --production=false install
+RUN npm install
 
 # add server
 COPY . /server
-RUN if [[ "$NODE_ENV" == "production" ]]; then \
-    echo "create production build" \
-    && npm run build; \
-    fi
 
 EXPOSE 3001
 CMD ["npm", "run", "start"]
