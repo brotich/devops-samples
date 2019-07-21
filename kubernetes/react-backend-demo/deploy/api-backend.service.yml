@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: api-backend
+  labels:
+    app: api-backend
+    role: api-backend
+    tier: demo
 spec:
   selector:
     app: api-backend
