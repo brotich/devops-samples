@@ -38,5 +38,15 @@ spec:
           limits:
             cpu: 30m
             memory: 100Mi
-        # readinessProbe:
-        # livenessProbe:
+        readinessProbe:
+          httpGet:
+            path: /api/healthz
+            port: 3001
+          initialDelaySeconds: 10
+          periodSeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /api/healthz
+            port: 3001
+          initialDelaySeconds: 50
+          periodSeconds: 30
