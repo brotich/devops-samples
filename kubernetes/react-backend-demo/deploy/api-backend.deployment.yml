@@ -23,6 +23,7 @@ spec:
       containers:
       - name: api-backend-demo
         image: brianstech/api-backend-demo:latest
+        imagePullPolicy: Always
         command:
           - npm
           - run

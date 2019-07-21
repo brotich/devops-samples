@@ -23,6 +23,7 @@ spec:
       containers:
       - name: react-client
         image: brianstech/react-client-demo:deploy
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
           name: http-client
