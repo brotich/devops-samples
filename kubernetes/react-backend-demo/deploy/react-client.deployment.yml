@@ -22,14 +22,10 @@ spec:
     spec:
       containers:
       - name: react-client
-        image: brianstech/react-client-demo:latest
+        image: brianstech/react-client-demo:deploy
         ports:
         - containerPort: 3000
           name: http-client
-        command:
-          - npm
-          - run
-          - start
         resources:
           requests:
             cpu: 20m
